@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Java Automation Suite" verbose="2">
+    
+    <listeners>
+        <listener class-name="com.automation.tests.listeners.CustomTestListener" />
+        <listener class-name="com.automation.listeners.TestListener" />
+    </listeners>
+
+    <!-- Chrome Browser Test Suite -->
+    <test name="Chrome Browser Tests" group-by-instances="true">
+        <parameter name="browser" value="chrome" />
+        <groups>
+            <run>
+                <include name="smoke" />
+                <include name="regression" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SmokeTest" />
+            <class name="com.automation.tests.GoogleSearchTest" />
+        </classes>
+    </test>
+
+    <!-- Firefox Browser Test Suite -->
+    <test name="Firefox Browser Tests" group-by-instances="true">
+        <parameter name="browser" value="firefox" />
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SmokeTest" />
+        </classes>
+    </test>
+
+    <!-- Edge Browser Test Suite -->
+    <test name="Edge Browser Tests" group-by-instances="true">
+        <parameter name="browser" value="edge" />
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SmokeTest" />
+        </classes>
+    </test>
+
+    <!-- Cross Browser Test Suite -->
+    <test name="Cross Browser Tests" group-by-instances="true">
+        <classes>
+            <class name="com.automation.tests.CrossBrowserTest" />
+        </classes>
+    </test>
+
+    <!-- Headless Test Suite -->
+    <test name="Headless Tests" group-by-instances="true">
+        <parameter name="browser" value="headless" />
+        <groups>
+            <run>
+                <include name="smoke" />
+                <include name="regression" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SmokeTest" />
+            <class name="com.automation.tests.GoogleSearchTest" />
+        </classes>
+    </test>
+
+    <!-- Parallel Execution Configuration -->
+    <test name="Parallel Tests" parallel="methods" thread-count="3">
+        <parameter name="browser" value="chrome" />
+        <groups>
+            <run>
+                <include name="smoke" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.tests.SmokeTest" />
+        </classes>
+    </test>
+
+</suite>

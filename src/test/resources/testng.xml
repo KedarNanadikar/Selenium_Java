@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium Java Automation Suite" verbose="1">
+    
+    <!-- Default parameters -->
+    <parameter name="testUrl" value="https://www.google.com"/>
+    <parameter name="searchQuery" value="Selenium WebDriver Java"/>
+    
+    <!-- Chrome Tests -->
+    <test name="Chrome Browser Tests" parallel="false">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="headless" value="false"/>
+        <classes>
+            <class name="com.automation.tests.GoogleSearchTest"/>
+        </classes>
+    </test>
+    
+    <!-- Firefox Tests -->
+    <test name="Firefox Browser Tests" parallel="false">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="headless" value="false"/>
+        <classes>
+            <class name="com.automation.tests.GoogleSearchTest"/>
+        </classes>
+    </test>
+    
+    <!-- Cross Browser Tests -->
+    <test name="Cross Browser Tests" parallel="false">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="headless" value="false"/>
+        <classes>
+            <class name="com.automation.tests.CrossBrowserTest"/>
+        </classes>
+    </test>
+    
+    <!-- Smoke Tests (Headless) -->
+    <test name="Smoke Tests - Headless" parallel="false">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="headless" value="true"/>
+        <classes>
+            <class name="com.automation.tests.SmokeTest"/>
+        </classes>
+    </test>
+    
+</suite>
